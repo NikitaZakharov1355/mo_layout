@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "<%= fontFamily %>";
+    src:url('../<%= fontName %>.eot?cache=<%= timestamp %>');
+    src:url('../<%= fontName %>.eot?cache=<%= timestamp %>#iefix') format('embedded-opentype'),
+        url('../<%= fontName %>.woff?cache=<%= timestamp %>') format('woff'),
+        url('../<%= fontName %>.ttf?cache=<%= timestamp %>') format('truetype'),
+        url('../<%= fontName %>.svg?cache=<%= timestamp %>#<%= fontFamily %>') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.<%= className %> {
+    font-family: "<%= fontFamily %>";
+    display: inline-block;
+    position: relative;
+        top: 1px;
+    line-height:1;
+    font-weight:normal;
+    font-style:normal;
+    speak:none;
+    text-decoration:inherit;
+    text-transform:none;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+<% _.each(glyphs, function(glyph) { %>
+.<%= className %>-<%= glyph.name.replace(/^.*CS5_/g, '') %>:before {
+    content: "\<%= glyph.codepoint.toString(16).toUpperCase() %>";
+}
+<% }); %>

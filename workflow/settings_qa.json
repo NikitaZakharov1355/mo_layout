@@ -1,0 +1,17 @@
+{
+  "url": "/",
+  "success_message": "Uploaded succesfuly!",
+  "ftp": [
+    {
+      "host": "",
+      "username": "",
+      "password": "",
+      "remote_dir": "/"
+    }
+  ],
+  "upload": {
+    "local_dir": "website",
+    "include": [],
+    "exclude": []
+  }
+}
